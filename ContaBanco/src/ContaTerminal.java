@@ -1,4 +1,5 @@
-import java.lang.reflect.AnnotatedWildcardType;
+import java.util.Locale;
+import java.util.Scanner;
 
 public class ContaTerminal {
         //TODO:Conhecer e importar a classe Scanner
@@ -7,25 +8,27 @@ public class ContaTerminal {
 
         //Obter pela scanner os valores digitados no terminal
 
-        //Exibir a mensagem conta criada
+      //Exibir a mensagem conta criada
     public static void main(String[] args) {
-        
-        int numero = 1021;
-        String agencia = 067-8;
-        String nomeCliente = MARIO ANDRADE;
-        double Saldo = 237.48;
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
 
         System.out.println("Por favor, digite o número da Agência !");
         int numero = scanner.nextInt();
 
-        System.out.println("Agora, por favor digite sua Agência");
+        System.out.println("Agora, por favor insira sua Agência:");
         String agencia = scanner.next();
 
-        System.out.println("Por favor, digite seu nome:");
-        String nome = scanner.next();
+        // to adicionando essa linha para ajudar na confusão do sistema
+        scanner.nextLine();
 
-        
+        System.out.println("Neste momento, por favor, introduza seu nome:");
+        String nomeCliente = scanner.nextLine();
+     
+        System.out.println("Agora, para finalizar, por favor, digite o saldo disponível em sua conta:");
+        double saldo = scanner.nextDouble();
+
+        System.out.println("Olá " + nomeCliente + ", obrigado por criar uma conta em nosso banco, sua agência é " + agencia + ", conta " + numero + " e seu saldo " + saldo + " já está disponível para saque.");
+    
     }
 }
